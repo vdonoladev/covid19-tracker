@@ -1,15 +1,15 @@
-let btn = document.getElementById('btn');
+let btn = document.getElementById("btn");
 
-btn.addEventListener('click', () => {
-  let text = document.getElementById('getText').value;
+btn.addEventListener("click", () => {
+  let text = document.getElementById("getText").value;
 
-  fetch('https://api.covid19api.com/summary')
+  fetch("https://api.covid19api.com/summary")
     .then((covidData) => {
       return covidData.json();
     })
     .then((getData) => {
       console.log(getData);
-      var content = document.querySelector('.data');
+      var content = document.querySelector(".data");
 
       var box = content.lastElementChild;
       while (box) {
@@ -24,7 +24,7 @@ btn.addEventListener('click', () => {
           break;
         }
       }
-      let data = document.querySelector('.data');
+      let data = document.querySelector(".data");
       data.innerHTML = `<div class="box">
                                 <div class="head">
                                     <span>Covid-19 Cases in ${getData.Countries[index].Country}</span>
